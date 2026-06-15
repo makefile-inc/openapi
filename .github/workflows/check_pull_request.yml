@@ -1,0 +1,23 @@
+name: Check pull request
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  lint:
+    name: "Gitgnore up to date with deps"
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - &checkout_step
+        name: Checkout
+        uses: actions/checkout@v6.0.2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Run check
+        run: make openapi/check/gitignore

@@ -1,7 +1,5 @@
 include $(CURDIR)/makefile-common/include.mk.inc openapi.mk
 
-check/openapi/gitignore: openapi/gitignore
-
 test/tmp-openapi:
 	@mkdir -p tmp-openapi/
 
