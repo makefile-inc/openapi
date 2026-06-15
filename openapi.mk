@@ -79,5 +79,5 @@ openapi/convert/to/v3: check/installed/docker check/installed/curl ## Convert op
 
 _OPENAPI_ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-openapi/gitignore: export GITIGNORES_TO_CHECK = $(_OPENAPI_ROOT_DIR)/makefile-common/.gitignore
-openapi/gitignore: check/common/gitignore ## Check that .gitignore up to date with makefile/common
+openapi/check/gitignore: export GITIGNORES_WITH_REQUIRED_RULES = $(_OPENAPI_ROOT_DIR)/makefile-common/.gitignore
+openapi/check/gitignore: check/common/gitignore ## Check that .gitignore up to date with makefile-inc/common
