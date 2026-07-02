@@ -29,7 +29,7 @@ Checkout to target version:
 ```
 pushd .
 cd makefile-openapi
-git fetch -a && git checkout v0.1.0 && git pull
+git fetch -a && git checkout v0.3.0 && git pull
 popd
 ```
 
