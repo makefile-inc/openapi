@@ -1,5 +1,5 @@
 # openapi
-Makefiles includes for generations client and servers and convertions openapi specs.
+Makefiles includes for generations client and servers and conversions openapi specs.
 
 ## Deps
 
@@ -24,7 +24,7 @@ Add submodule:
 git submodule add git@github.com:makefile-inc/openapi.git makefile-openapi
 ```
 
-Checkout to target wersion:
+Checkout to target version:
 
 ```
 pushd .
@@ -38,6 +38,20 @@ Include in root Makefile in the next way:
 ```Makefile
 include $(CURDIR)/makefile-openapi/include.mk.inc
 ```
+
+**WARNING! If you use submodule and github actions, add to checkout action checkout submodules `submodules: "true"`, like:**
+```yaml
+...
+    steps:
+      - &checkout_step
+        name: Checkout
+        uses: actions/checkout@v6.0.2
+        with:
+          fetch-depth: 0
+          submodules: "true"
+          ref: ${{ github.event.pull_request.head.sha }}
+...
+``` 
 
 ## Targets
 
@@ -58,7 +72,7 @@ include $(CURDIR)/makefile-openapi/include.mk.inc
   make openapi/convert/to/v3 INPUT_SPEC=tmp-openapi/v2-1.json OUT_SPEC_PATH=tmp-openapi/v3-1.json
   ```
 - `openapi/check/gitignore` - Check that .gitignore up to date with makefile-inc/common
-  Userfull for check up to date root .gitignore with makefile-inc/common during update.
+  Usefully for check up to date root .gitignore with makefile-inc/common during update.
 
 ### Example
 
