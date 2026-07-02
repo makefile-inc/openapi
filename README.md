@@ -36,6 +36,12 @@ popd
 Include in root Makefile in the next way:
 
 ```Makefile
+# if you use github.com/makefile-inc/common add your own makefile-common
+# include $(CURDIR)/makefile-common/include.mk.inc
+
+# otherwise add from openapi
+# include $(CURDIR)/makefile-openapi/makefile-common/include.mk.inc
+
 include $(CURDIR)/makefile-openapi/include.mk.inc
 ```
 
